@@ -78,7 +78,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Profile extends React.Component {
   componentDidMount() {
-    const username = this.props.params.username?.substring(1);
+    const username = this.props.params.username
     this.props.onLoad(
       Promise.all([
         agent.Profile.get(username),
@@ -117,6 +117,7 @@ class Profile extends React.Component {
 
   render() {
     const profile = this.props.profile;
+    
     if (!profile) {
       return null;
     }
