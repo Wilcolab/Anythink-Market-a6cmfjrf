@@ -78,7 +78,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Profile extends React.Component {
   componentDidMount() {
-    const username = this.props.params.username?.substring(1);
+    const username = this.props.params.username
     this.props.onLoad(
       Promise.all([
         agent.Profile.get(username),
@@ -117,6 +117,7 @@ class Profile extends React.Component {
 
   render() {
     const profile = this.props.profile;
+    
     if (!profile) {
       return null;
     }
@@ -126,7 +127,7 @@ class Profile extends React.Component {
       this.props.profile.username === this.props.currentUser.username;
 
     return (
-      <div className="profile-page">
+      <div className="profile-page" style={{maxWidth: "414px"}}>
         <div className="container">
           <div className="row p-4 text-center">
             <div className="user-info col-xs-12 col-md-8 offset-md-2">
